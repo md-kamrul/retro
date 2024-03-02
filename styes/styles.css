@@ -10,3 +10,9 @@
 .inter-font{
     font-family: "Inter", sans-serif;
 }
+
+.btn:hover{
+    background-color: #797dfc4d;
+    color: #797DFC;
+    border: 1px solid #797DFC;
+}
