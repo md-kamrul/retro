@@ -16,3 +16,9 @@
     color: #797DFC;
     border: 1px solid #797DFC;
 }
+
+.hero-section{
+    background: url('../assets/images/bgbanner.png'), #12132D;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

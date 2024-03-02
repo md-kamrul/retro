@@ -16,10 +16,10 @@
 <body>
 
     <!-- header section -->
-    <header class="w-full md:w-[80%] mx-auto">
+    <header class="w-full md:w-[90%] lg:w-[80%] mx-auto mb-[50px]">
 
         <!-- navbar section -->
-        <div class="navbar bg-base-100 mt-4">
+        <div class="navbar mt-4">
             <div class="navbar-start">
                 <div class="dropdown">
                     <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
@@ -29,7 +29,7 @@
                                 d="M4 6h16M4 12h8m-8 6h16" />
                         </svg>
                     </div>
-                    <ul tabindex="0"
+                    <ul tabindex="0 w-full"
                         class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box flex flex-col">
                         <div class="tooltip" data-tip="Home">
                             <div
@@ -37,28 +37,28 @@
                                 <img src="./assets/icons/home.svg" alt="">
                             </div>
                         </div>
-    
+
                         <div class="tooltip" data-tip="Edit">
                             <div
                                 class="btn bg-[#12132D08] rounded-full w-[56px] h-[56px] justify-center border-2 border-[#0307121A]">
                                 <img src="./assets/icons/edit.svg" alt="">
                             </div>
                         </div>
-    
+
                         <div class="tooltip" data-tip="Add">
                             <div
                                 class="btn bg-[#12132D08] rounded-full w-[56px] h-[56px] justify-center border-2 border-[#0307121A]">
                                 <img src="./assets/icons/add.svg" alt="">
                             </div>
                         </div>
-    
+
                         <div class="tooltip" data-tip="flag">
                             <div
                                 class="btn bg-[#12132D08] rounded-full w-[56px] h-[56px] justify-center border-2 border-[#0307121A]">
                                 <img src="./assets/icons/flag.svg" alt="">
                             </div>
                         </div>
-    
+
                         <button class="btn bg-[#797DFC] text-[white] rounded-3xl w-[147px] text-[18px] mulish-font">
                             Sign In
                         </button>
@@ -107,6 +107,52 @@
 
     <!-- main section -->
     <main class="w-full md:w-[80%] mx-auto">
+
+        <!-- hero section -->
+        <section class="hero-section px-24 w-[95%] md:w-full mx-auto h-auto rounded-[32px] mulish-font mb-24">
+            <div class="hero">
+                <div class="hero-content flex-col lg:flex-row-reverse">
+                    <div
+                        class="bg-[white] p-12 text-[#12132DCC] text-base flex justify-between font-bold w-[300px] h-auto rounded-[32px] mt-10 md:mt-0">
+                        <div>
+                            <p>Registered User</p>
+                            <p>Forum</p>
+                            <p>Topics</p>
+                            <p>Replies</p>
+                        </div>
+                        <div>
+                            <p>01</p>
+                            <p>05</p>
+                            <p>01</p>
+                            <p>01</p>
+                        </div>
+                    </div>
+
+                    <div class="w-full md:max-w-lg rounded-lg mr-8">
+                        <div class="mt-24">
+                            <h1 class="text-5xl md:text-[64px] font-black text-white">
+                                Welcome to the
+                                <div
+                                    class="bg-gradient-to-r from-[#797dfc] to-[#797dfc00] inline-block text-transparent bg-clip-text">
+                                    ReTro
+                                </div>
+                                Forum
+                            </h1>
+                            <p class="py-6 text-[#FFFFFFCC] font-medium text-xl md:text-2xl">
+                                Share your favorite opinion and win a Retro forum coffee mug!
+                            </p>
+                            <div class="flex relative mb-24">
+                                <input type="text" placeholder="Search here anything"
+                                    class="rounded-3xl input input-bordered input-primary w-full md:max-w-md" />
+                                <button
+                                    class="search btn bg-[#797DFC] text-[white] rounded-3xl w-[100px] mulish-font absolute right-0 md:right-[10px] lg:right-[65px]">
+                                    Search
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
 
     </main>
 
