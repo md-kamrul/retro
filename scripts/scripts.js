@@ -56,10 +56,7 @@ const lastestPost = async () => {
         `;
 
         lastesPostCards.appendChild(card);
-
-        console.log(element);
     });
-    // console.log(lastestPostData);
 }
 
 lastestPost();
