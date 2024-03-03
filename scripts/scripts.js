@@ -64,14 +64,13 @@ lastestPost();
 
 const discussSection = async () => {
     const discuss = document.getElementById("discuss");
+
     const discussAPI = await fetch("https://openapi.programming-hero.com/api/retro-forum/posts");
     const discussAPIData = await discussAPI.json();
 
     discussAPIData.posts.forEach(element => {
-        console.log(element);
-
         const discussCard = document.createElement("div");
-        discussCard.classList.add = ("card", "card-side", "bg-[#F3F3F5]", "hover:bg-[#797DFC1A]", "border-2", "border-transparent", "hover:border-[#797dfc9d]", "inter-font");
+        discussCard.classList.add("card", "card-side", "bg-[#F3F3F5]", "hover:bg-[#797DFC1A]", "border-2", "border-transparent", "hover:border-[#797dfc9d]", "inter-font");
         discussCard.innerHTML = `
                         <div class="stat flex">
 
