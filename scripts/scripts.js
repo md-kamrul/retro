@@ -60,3 +60,97 @@ const lastestPost = async () => {
 }
 
 lastestPost();
+
+
+const discussSection = async () => {
+    const discuss = document.getElementById("discuss");
+    const discussAPI = await fetch("https://openapi.programming-hero.com/api/retro-forum/posts");
+    const discussAPIData = await discussAPI.json();
+
+    discussAPIData.posts.forEach(element => {
+        console.log(element);
+
+        const discussCard = document.createElement("div");
+        discussCard.classList.add = ("card", "card-side", "bg-[#F3F3F5]", "hover:bg-[#797DFC1A]", "border-2", "border-transparent", "hover:border-[#797dfc9d]", "inter-font");
+        discussCard.innerHTML = `
+                        <div class="stat flex">
+
+                            <!-- avatar design -->
+                            <div class="text-secondary mt-5 ml-5">
+                                <div class="avatar online">
+                                    <div class="w-[72px] h-[72px] rounded-2xl">
+                                        <img src="https://daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg"
+                                            alt="Movie" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- card body -->
+                            <div class="card-body ml-[-20px] mt-[-10px] w-[80%] md:w-full">
+                                <div class="flex gap-5 text-[#12132DCC] font-medium text-[14px]">
+                                    <div>
+                                        <p>
+                                            #
+                                            <span>
+                                                Music
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p>
+                                            Author :
+                                            <span>
+                                                Awlad Hossain
+                                            </span>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <h3 class="mulish-font font-bold text-xl text-[#12132D] w-[90%]">
+                                    10 Kids Unaware of Their Halloween Costume
+                                </h3>
+
+                                <p class="font-normal w-full text-[#12132D99]">
+                                    It’s one thing to subject yourself to ha Halloween costume mishap because, hey
+                                    that’s your prerogative
+                                </p>
+
+                                <hr class="border-2 border-dashed border-[#12132D40] my-6">
+
+                                <div class="flex justify-between text-[#12132D99] font-normal">
+
+                                    <div class="flex gap-6">
+                                        <div class="flex gap-1">
+                                            <img src="./assets/icons/comment-post.svg" alt="">
+                                            <p>
+                                                560
+                                            </p>
+                                        </div>
+
+                                        <div class="flex gap-1">
+                                            <img src="./assets/icons/watch-post.svg" alt="">
+                                            <p>
+                                                1,568
+                                            </p>
+                                        </div>
+
+                                        <div class="flex gap-1">
+                                            <img src="./assets/icons/reading-time.svg" alt="">
+                                            <p>
+                                                5 min
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <img class="cursor-pointer" src="./assets/icons/mark-as-read.svg" alt="">
+
+                                </div>
+                            </div>
+                        </div>
+        `;
+
+        discuss.appendChild(discussCard);
+    });
+}
+
+discussSection();
