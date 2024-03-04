@@ -169,15 +169,15 @@
             <div class="grid md:grid-cols-12 justify-between mb-24 gap-4">
 
                 <!-- card section -->
-                <div id="discuss" class="col-span-8 flex flex-col gap-6">
+                <div id="discuss" class="col-span-12 md:col-span-8 flex flex-col gap-6">
 
                 </div>
 
                 <!-- mark as read section -->
                 <div
-                    class="bg-[#F3F3F5] border-2 border-transparent mulish-font rounded-3xl p-6 col-span-4 items-center">
+                    class="bg-[#F3F3F5] border-2 border-transparent mulish-font rounded-3xl p-6 col-span-12 md:col-span-4 items-center">
 
-                    <div class="flex justify-between">
+                    <div class="flex flex-row justify-between">
                         <div>
                             <h4 class="text-[#12132D] font-bold text-xl">
                                 Title
@@ -190,8 +190,8 @@
                             <div>
                                 <p>
                                     Mark as read (
-                                    <span>
-                                        1
+                                    <span id="markAsReadNumber">
+                                        0
                                     </span>
                                     )
                                 </p>
@@ -199,20 +199,8 @@
                         </div>
                     </div>
 
-                    <div id="markAsReadContainer">
-                        <!-- <div class="bg-white p-5 rounded-2xl grid grid-cols-6 mt-4">
-                            <div class="col-span-4 text-[#12132D] font-semibold">
-                                10 Kids Unaware of Their Halloween Costume
-                            </div>
-                            <div class="col-span-2">
-                                <div class="flex gap-1">
-                                    <img src="./assets/icons/watch-post.svg" alt="">
-                                    <p>
-                                        1,568
-                                    </p>
-                                </div>
-                            </div>
-                        </div> -->
+                    <div id="markAsReadContainer" class="justify-between">
+
                     </div>
 
                 </div>

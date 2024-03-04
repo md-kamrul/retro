@@ -149,15 +149,20 @@ const lastestPost = async () => {
 }
 
 const markAsRead = async (title, view_count) => {
-    const markAsReadContainer = document.getElementById("markAsReadContainer");
+    let markAsReadNumber = document.getElementById("markAsReadNumber");
+    let markAsReadContainer = document.getElementById("markAsReadContainer");
+    let number = parseInt(markAsReadNumber.innerText);
+    markAsReadNumber.innerText = number + 1;
+
+    // markAsReadNumber.innerText = markAsReadNumber;
 
     const markAsReadDiv = document.createElement("div");
     markAsReadDiv.classList.add("bg-white", "p-5", "rounded-2xl", "grid", "grid-cols-6", "mt-4");
     markAsReadDiv.innerHTML = `
-                            <div class="col-span-4 text-[#12132D] font-semibold">
+                            <div class="col-span-5 md:col-span-4 text-[#12132D] font-semibold">
                                 ${title}
                             </div>
-                            <div class="col-span-2">
+                            <div class="col-span-1 md:col-span-2">
                                 <div class="flex gap-1">
                                     <img src="./assets/icons/watch-post.svg" alt="">
                                     <p>
