@@ -178,6 +178,10 @@ const markAsRead = async (title, view_count) => {
 setTimeout(discussSection = async () => {
     const discuss = document.getElementById("discuss");
 
+    const discussLoading = document.getElementById("discussLoading");
+    discussLoading.classList.remove("flex");
+    discussLoading.classList.add("hidden");
+
     const discussAPI = await fetch("https://openapi.programming-hero.com/api/retro-forum/posts");
     const discussAPIData = await discussAPI.json();
 
