@@ -25,94 +25,102 @@ const markAsRead = async (title, view_count) => {
     markAsReadContainer.appendChild(markAsReadDiv);
 }
 
-setTimeout(discussSection = async () => {
+setTimeout(discussSection = async (searchValue) => {
     const discuss = document.getElementById("discuss");
 
     const discussLoading = document.getElementById("discussLoading");
     discussLoading.classList.remove("flex");
     discussLoading.classList.add("hidden");
 
-    const discussAPI = await fetch("https://openapi.programming-hero.com/api/retro-forum/posts");
+    let discussAPI;
+
+    if (searchValue) {
+        discussAPI = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${searchValue}`);
+    }
+    else { 
+        discussAPI = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts`);
+    }
+    
     const discussAPIData = await discussAPI.json();
 
     discussAPIData.posts.forEach(element => {
         const discussCard = document.createElement("div");
         discussCard.classList.add("card", "card-side", "bg-[#F3F3F5]", "hover:bg-[#797DFC1A]", "border-2", "border-transparent", "hover:border-[#797dfc9d]", "inter-font");
         discussCard.innerHTML = `
-                        <div class="stat flex">
-
-                            <!-- avatar design -->
-                            <div class="text-secondary mt-5 ml-5">
-                                <div class="avatar ${element.isActive ? "online" : "offline"}">
-                                    <div class="w-[72px] h-[72px] rounded-2xl">
-                                        <img src="${element.image}"
-                                            alt="Movie" />
+                            <div class="stat flex">
+    
+                                <!-- avatar design -->
+                                <div class="text-secondary mt-5 ml-5">
+                                    <div class="avatar ${element.isActive ? "online" : "offline"}">
+                                        <div class="w-[72px] h-[72px] rounded-2xl">
+                                            <img src="${element.image}"
+                                                alt="Movie" />
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <!-- card body -->
+                                <div class="card-body ml-[-20px] mt-[-10px] w-[80%] md:w-full">
+                                    <div class="flex gap-5 text-[#12132DCC] font-medium text-[14px]">
+                                        <div>
+                                            <p>
+                                                #
+                                                <span>
+                                                    ${element.category}
+                                                </span>
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <p>
+                                                Author :
+                                                <span>
+                                                    ${element.author.name}
+                                                </span>
+                                            </p>
+                                        </div>
+                                    </div>
+    
+                                    <h3 class="mulish-font font-bold text-xl text-[#12132D] w-[90%]">
+                                        ${element.title}
+                                    </h3>
+    
+                                    <p class="font-normal w-full text-[#12132D99]">
+                                    ${element.description}
+                                    </p>
+    
+                                    <hr class="border-2 border-dashed border-[#12132D40] my-6">
+    
+                                    <div class="flex justify-between text-[#12132D99] font-normal">
+    
+                                        <div class="flex gap-6">
+                                            <div class="flex gap-1">
+                                                <img src="./assets/icons/comment-post.svg" alt="">
+                                                <p>
+                                                ${element.comment_count}
+                                                </p>
+                                            </div>
+    
+                                            <div class="flex gap-1">
+                                                <img src="./assets/icons/watch-post.svg" alt="">
+                                                <p>
+                                                ${element.view_count}
+                                                </p>
+                                            </div>
+    
+                                            <div class="flex gap-1">
+                                                <img src="./assets/icons/reading-time.svg" alt="">
+                                                <p>
+                                                ${element.posted_time} min
+                                                </p>
+                                            </div>
+                                        </div>
+    
+                                        <img onclick="markAsRead('${element.title}', '${element.view_count}')" class="cursor-pointer" src="./assets/icons/mark-as-read.svg" alt="">
+    
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- card body -->
-                            <div class="card-body ml-[-20px] mt-[-10px] w-[80%] md:w-full">
-                                <div class="flex gap-5 text-[#12132DCC] font-medium text-[14px]">
-                                    <div>
-                                        <p>
-                                            #
-                                            <span>
-                                                ${element.category}
-                                            </span>
-                                        </p>
-                                    </div>
-                                    <div>
-                                        <p>
-                                            Author :
-                                            <span>
-                                                ${element.author.name}
-                                            </span>
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <h3 class="mulish-font font-bold text-xl text-[#12132D] w-[90%]">
-                                    ${element.title}
-                                </h3>
-
-                                <p class="font-normal w-full text-[#12132D99]">
-                                ${element.description}
-                                </p>
-
-                                <hr class="border-2 border-dashed border-[#12132D40] my-6">
-
-                                <div class="flex justify-between text-[#12132D99] font-normal">
-
-                                    <div class="flex gap-6">
-                                        <div class="flex gap-1">
-                                            <img src="./assets/icons/comment-post.svg" alt="">
-                                            <p>
-                                            ${element.comment_count}
-                                            </p>
-                                        </div>
-
-                                        <div class="flex gap-1">
-                                            <img src="./assets/icons/watch-post.svg" alt="">
-                                            <p>
-                                            ${element.view_count}
-                                            </p>
-                                        </div>
-
-                                        <div class="flex gap-1">
-                                            <img src="./assets/icons/reading-time.svg" alt="">
-                                            <p>
-                                            ${element.posted_time} min
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <img onclick="markAsRead('${element.title}', '${element.view_count}')" class="cursor-pointer" src="./assets/icons/mark-as-read.svg" alt="">
-
-                                </div>
-                            </div>
-                        </div>
-        `;
+            `;
 
         discuss.appendChild(discussCard);
     });
@@ -185,3 +193,15 @@ setTimeout(lastestPost = async () => {
         lastesPostCards.appendChild(card);
     });
 }, 2000);
+
+setTimeout(normal = async () => {
+
+}, 2000);
+
+const serachBtn = document.getElementById("serachBtn");
+serachBtn.addEventListener("click", function () {
+    const search = document.getElementById("search");
+    const searchValue = search.value;
+    discussSection(searchValue);
+    search.value = "";
+});
