@@ -12,7 +12,7 @@ const discussSection = async () => {
 
                             <!-- avatar design -->
                             <div class="text-secondary mt-5 ml-5">
-                                <div class="avatar ${element.isActive?"online":"offline"}">
+                                <div class="avatar ${element.isActive ? "online" : "offline"}">
                                     <div class="w-[72px] h-[72px] rounded-2xl">
                                         <img src="${element.image}"
                                             alt="Movie" />
@@ -148,9 +148,26 @@ const lastestPost = async () => {
     });
 }
 
-const markAsRead = async (title, view_count) => { 
-    // const markAsReadContainer = document.getElementById("markAsReadContainer");
-    console.log(title, view_count);
+const markAsRead = async (title, view_count) => {
+    const markAsReadContainer = document.getElementById("markAsReadContainer");
+
+    const markAsReadDiv = document.createElement("div");
+    markAsReadDiv.classList.add("bg-white", "p-5", "rounded-2xl", "grid", "grid-cols-6", "mt-4");
+    markAsReadDiv.innerHTML = `
+                            <div class="col-span-4 text-[#12132D] font-semibold">
+                                ${title}
+                            </div>
+                            <div class="col-span-2">
+                                <div class="flex gap-1">
+                                    <img src="./assets/icons/watch-post.svg" alt="">
+                                    <p>
+                                        ${view_count}
+                                    </p>
+                                </div>
+                            </div>
+    `;
+
+    markAsReadContainer.appendChild(markAsReadDiv);
 }
 
 discussSection();
