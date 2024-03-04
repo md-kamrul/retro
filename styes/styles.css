@@ -26,3 +26,7 @@
 .join-forum-section{
     background-color: #12132D;
 }
+
+.avatar.offline:before {
+    background-color: red;
+}

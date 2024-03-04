@@ -76,9 +76,9 @@ const discussSection = async () => {
 
                             <!-- avatar design -->
                             <div class="text-secondary mt-5 ml-5">
-                                <div class="avatar online">
+                                <div class="avatar ${element.isActive?"online":"offline"}">
                                     <div class="w-[72px] h-[72px] rounded-2xl">
-                                        <img src="https://daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg"
+                                        <img src="${element.image}"
                                             alt="Movie" />
                                     </div>
                                 </div>
@@ -91,7 +91,7 @@ const discussSection = async () => {
                                         <p>
                                             #
                                             <span>
-                                                Music
+                                                ${element.category}
                                             </span>
                                         </p>
                                     </div>
@@ -99,19 +99,18 @@ const discussSection = async () => {
                                         <p>
                                             Author :
                                             <span>
-                                                Awlad Hossain
+                                                ${element.author.name}
                                             </span>
                                         </p>
                                     </div>
                                 </div>
 
                                 <h3 class="mulish-font font-bold text-xl text-[#12132D] w-[90%]">
-                                    10 Kids Unaware of Their Halloween Costume
+                                    ${element.title}
                                 </h3>
 
                                 <p class="font-normal w-full text-[#12132D99]">
-                                    It’s one thing to subject yourself to ha Halloween costume mishap because, hey
-                                    that’s your prerogative
+                                ${element.description}
                                 </p>
 
                                 <hr class="border-2 border-dashed border-[#12132D40] my-6">
@@ -122,21 +121,21 @@ const discussSection = async () => {
                                         <div class="flex gap-1">
                                             <img src="./assets/icons/comment-post.svg" alt="">
                                             <p>
-                                                560
+                                            ${element.comment_count}
                                             </p>
                                         </div>
 
                                         <div class="flex gap-1">
                                             <img src="./assets/icons/watch-post.svg" alt="">
                                             <p>
-                                                1,568
+                                            ${element.view_count}
                                             </p>
                                         </div>
 
                                         <div class="flex gap-1">
                                             <img src="./assets/icons/reading-time.svg" alt="">
                                             <p>
-                                                5 min
+                                            ${element.posted_time} min
                                             </p>
                                         </div>
                                     </div>
@@ -149,6 +148,7 @@ const discussSection = async () => {
         `;
 
         discuss.appendChild(discussCard);
+        console.log(element.author.name);
     });
 }
 
