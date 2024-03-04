@@ -27,6 +27,7 @@ const markAsRead = async (title, view_count) => {
 
 setTimeout(discussSection = async (searchValue) => {
     const discuss = document.getElementById("discuss");
+    discuss.innerHTML = "";
 
     const discussLoading = document.getElementById("discussLoading");
     discussLoading.classList.remove("flex");
