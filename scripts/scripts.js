@@ -76,7 +76,7 @@ const discussSection = async () => {
                                         </div>
                                     </div>
 
-                                    <img class="cursor-pointer" src="./assets/icons/mark-as-read.svg" alt="">
+                                    <img onclick="markAsRead('${element.title}', '${element.view_count}')" class="cursor-pointer" src="./assets/icons/mark-as-read.svg" alt="">
 
                                 </div>
                             </div>
@@ -84,7 +84,6 @@ const discussSection = async () => {
         `;
 
         discuss.appendChild(discussCard);
-        console.log(element.author.name);
     });
 }
 
@@ -147,6 +146,11 @@ const lastestPost = async () => {
 
         lastesPostCards.appendChild(card);
     });
+}
+
+const markAsRead = async (title, view_count) => { 
+    // const markAsReadContainer = document.getElementById("markAsReadContainer");
+    console.log(title, view_count);
 }
 
 discussSection();
